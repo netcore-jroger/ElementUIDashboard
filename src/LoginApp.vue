@@ -24,7 +24,7 @@
           <div class="form-valid-message">请输入正确的验证码</div>
         </div>
         <div class="form-element form-element-login">
-          <div><button v-on:click="SignIn" class="">登 录</button></div>
+          <div><a v-on:click="SignIn" class="from-element-button">登 录</a></div>
           <div class="form-login-message">{{SignInResult}}</div>
         </div>
       </div>
@@ -80,6 +80,8 @@
       },
 
       SignIn: function() {
+        document.getElementsByClassName('from-element-button')[0].setAttribute('disabled', 'disabled');
+
         this.$data.SignInResult = '';
         let data = this.$data;
         Http.post(`${baseUri}user/signin`, data)
@@ -93,12 +95,14 @@
               }, 2000);
             } else {
               this.$data.SignInResult = `登录失败。${res.data.Messages.join(', ')}`;
+              document.getElementsByClassName('from-element-button')[0].removeAttribute('disabled');
             }
           })
           .catch(err => {
             if (err) {
               console.log(err);
             }
+            document.getElementsByClassName('from-element-button')[0].removeAttribute('disabled');
           });
       },
 
@@ -318,6 +322,30 @@
     text-align: center;
     height: 30px;
     line-height: 30px;
+  }
+
+  .from-element-button{
+    display: inline-block;
+    height: 26px;
+    line-height: 28px;
+    border: 1px solid #4675ca;
+    padding: 0px 16px 2px 16px;
+    background-color: #f3f6f6;
+    color: #404040;
+    border-radius: 2px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+    user-select: none;
+    box-shadow: 0 1px 2px -1px #fcfcfc inset, 0 -2px 0 0 #409ad5 inset;
+    transition: all 0.1s linear;
+  }
+  .from-element-button:active{
+    box-shadow: 0 -1px 0 0 #e7f2fa inset, 0 2px 0 0 #6ab0de inset;
+    padding: 2px 16px 0px 16px;
+  }
+  .from-element-button[disabled]{
+    pointer-events: none;
   }
 
   #particle {
