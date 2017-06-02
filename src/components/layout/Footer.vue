@@ -1,7 +1,7 @@
 <template>
   <el-row class="footer">
     <el-col :span="24">
-      <div class="">&copy; IvBaby Inc.</div>
+      <div class="">&copy; JRoger Inc.</div>
     </el-col>
   </el-row>
 </template>

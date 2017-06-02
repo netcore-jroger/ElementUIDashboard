@@ -4,7 +4,7 @@
 
     <form v-on:submit.prevent id="app">
       <div class="container" id="loginForm">
-        <div class="form-title">IvyBaby - 登 录</div>
+        <div class="form-title">ElementUIDashboard - 登 录</div>
         <div class="form-element form-element-first">
           <div class="form-element-label">用户名：</div>
           <div class="form-element-inp"><input type="text" name="UserName" v-model="UserName"></div>
