@@ -2,6 +2,9 @@
 
 > A Vue.js project
 
+![login-preview](./docs/login-page.png)
+![main-preview](./docs/main-page.png)
+
 ## Build Setup
 
 ``` bash
